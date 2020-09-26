@@ -22,7 +22,7 @@
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
     "useMultiFrameRuntime": false,
-    "useApiHook": false,
+    "useApiHook": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -36,7 +36,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.10.4",
-  "appid": "wxdf94d3be1c482cac",
+  "appid": "wx479b04eb3fccb99e",
   "projectname": "zjz",
   "debugOptions": {
     "hidedInDevtools": []

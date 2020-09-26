@@ -2,7 +2,7 @@
 //获取应用实例 
 let app = getApp();
 let wechat = require("../utils/wechat");
-let strIp = "http://2099.ink:8013";    
+let strIp = "http://www.2099.ink:8013";    
 Page({
   data: {
     device: true,

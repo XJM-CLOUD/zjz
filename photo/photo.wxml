@@ -1,3 +1,8 @@
+<view>
+    <view class="window"style="text-align:center">
+            <view style="margin-top: 50px">请点击相册导入或开始拍摄</view>
+    </view>
+</view>
 <view class='photo-footer-fixed' style="" >
    <view class="flex-wrp"  style="flex-direction:row">
       <view style="float:left;margin-left: 20rpx;width:60%">支持背景 </view>
