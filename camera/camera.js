@@ -2,7 +2,7 @@
 //获取应用实例 
 let app = getApp();
 let wechat = require("../utils/wechat");
-let strIp = "http://192.168.0.106:8013";    
+let strIp = "http://2099.ink:8013";    
 Page({
   data: {
     device: true,
@@ -123,6 +123,42 @@ Page({
     console.log('返回------');
     wx.navigateBack({
       delta: 1
+    })
+  },
+  saveImage: function(){
+    console.log('保存------');
+    var _this = this;
+    wx.downloadFile({
+      url: this.data.tempImagePath, //仅为示例，并非真实的资源
+      success: function (res) {
+        // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
+        console.log(res);
+        if (res.statusCode === 200) {
+          wx.saveImageToPhotosAlbum({
+            filePath: res.tempFilePath,
+            success: function (data) {
+              console.log(data);
+            },
+            fail: function (err) {
+              console.log(err);
+              if (err.errMsg === "saveImageToPhotosAlbum:fail auth deny") {
+                console.log("用户一开始拒绝了，我们想再次发起授权")
+                alert('打开设置窗口')
+                wx.openSetting({
+                  success(settingdata) {
+                    console.log(settingdata)
+                    if (settingdata.authSetting['scope.writePhotosAlbum']) {
+                      console.log('获取权限成功，给出再次点击图片保存到相册的提示。')
+                    } else {
+                      console.log('获取权限失败，给出不给权限就无法正常使用的提示')
+                    }
+                  }
+                })
+              }
+            }
+          })
+        }
+      }
     })
   }
 })  

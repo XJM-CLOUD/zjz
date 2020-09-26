@@ -9,7 +9,7 @@
           </view>
       </view> 
       <view class="window-2">  
-         <button class='btn'  bindtap="Photo">保存图片到相册</button>
+         <button class='btn'  bindtap="saveImage">保存图片到相册</button>
       </view> 
       <loading hidden="{{loadingHidden}}">正在加载</loading> 
     </view> 
